@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //Relacion One to Many
+    public function solicitudes(){
+        return $this->hasMany('App\Solicitud');
+    }
 }

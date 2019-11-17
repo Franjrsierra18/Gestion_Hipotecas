@@ -14,7 +14,8 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-        $solicitudes = Solicitud::all();
+        // $solicitudes = Solicitud::all();
+        $solicitudes = Solicitud::orderBy('id', 'desc')->paginate(10);
         return view('solicitudes.index')->with('solicitudes', $solicitudes);
     }
 
@@ -43,7 +44,6 @@ class SolicitudController extends Controller
             'ahorros' => 'required',
             'precio' => 'required'
         ]);
-
         //Crea solicitud
         $solicitud = new Solicitud;
         $solicitud->nombre = $request->input('nombre');
@@ -51,6 +51,9 @@ class SolicitudController extends Controller
         $solicitud->telefono = $request->input('telefono');
         $solicitud->ahorros = $request->input('ahorros');
         $solicitud->precio = $request->input('precio');
+        $solicitud->save();
+
+        return redirect('/')->with('success', 'Solicitud generada, la procesara alguno de nuestros expertos');
     }
 
     /**
@@ -62,7 +65,8 @@ class SolicitudController extends Controller
     public function show($id)
     {
         $solicitud = Solicitud::find($id);
-        return view('solicitudes.show')->with('solicitud', $solicitud);
+
+        return view('solicitudes.show');
     }
 
     /**

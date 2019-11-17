@@ -23,3 +23,10 @@ Route::resource('solicitud', 'SolicitudController');
 //     // return view('paginas.experto');
 //     return 'Experto hipotecario '.$id.', Esta es una lista de tus solicitudes';
 // });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

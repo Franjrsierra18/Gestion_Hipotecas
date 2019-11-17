@@ -16,6 +16,6 @@ class PaginasController extends Controller
     }
     
     public function experto(){
-        return view('paginas.experto');
+        return view('solicitudes.index');
     }
 }
