@@ -3,34 +3,28 @@
 @section('content')    
     <h1>Bienvenido cliente!</h1>
     <p>Para solicitar una hipoteca, porfavor rellene el siguiente formulario</p>
-    <form action="" method="post">
+    
+    {!! Form::open(['action' => 'SolicitudController@store', 'method' => 'POST']) !!}
         <div class="form-group">
-            <label for="exampleInputEmail1">Nombre y Apellido</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter nombre">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            {{Form::label('nombre', 'Nombre Completo')}}
+            {{Form::text('nombre', '', ['class' => 'form-control', 'placeholder' => 'Nombre y Apellido'])}}
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Telefono</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter telefono">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            {{Form::label('email', 'Dirección E-mail')}}
+            {{Form::text('email', '', ['class' => 'form-control', 'placeholder' => 'E-mail'])}}
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Ahorros aportados</label>
-            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Indique sus ahorros">
+            {{Form::label('telefono', 'Numero de Teléfono')}}
+            {{Form::number('telefono', '', ['class' => 'form-control', 'placeholder' => '034888777666'])}}
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword">Precio de compra</label>
-            <input type="number" class="form-control" id="exampleInputPassword" placeholder="€€€">
+            {{Form::label('ahorros', 'Ahorros Aportados')}}
+            {{Form::number('ahorros', '', ['class' => 'form-control', 'placeholder' => 'Indique cantidad €€€'])}}
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="form-group">
+            {{Form::label('precio', 'Precio de Compra')}}
+            {{Form::number('precio', '', ['class' => 'form-control', 'placeholder' => 'Indique cantidad €€€'])}}
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        {{Form::submit('Solicitar', ['class' => 'btn btn-primary'])}}
+    {!! Form::close() !!}
 @endsection

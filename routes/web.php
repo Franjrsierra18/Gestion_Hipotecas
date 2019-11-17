@@ -14,6 +14,8 @@
 Route::get('/', 'PaginasController@index');
 Route::get('/cliente', 'PaginasController@cliente');
 Route::get('/experto', 'PaginasController@experto');
+
+Route::resource('solicitud', 'SolicitudController');
 // Route::get('/cliente', function () {
 //     return view('paginas.cliente');
 // });
